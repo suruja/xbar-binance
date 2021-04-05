@@ -23,7 +23,7 @@ BitBar::Menu.new do
 
     item("#{symbol.strip}\t\t#{coins.round(rounding).to_s.sub(".", ",")}")
 
-    item("EUR\t\t#{price.round(2).to_s.sub(".", ",")}")
+    item("#{ENV["DEFAULT_CURRENCY"]}\t\t#{price.round(2).to_s.sub(".", ",")}")
 
     change.each do |time, percent|
       item("#{time}\t\t #{Formatter.arrow(percent >= 0.0)} #{Formatter.percent(percent)}", color: (percent > 0) ? "green" : "red")
