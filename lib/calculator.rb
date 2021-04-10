@@ -40,6 +40,8 @@ class Calculator
       @changes << [symbol, coins, price, change, market.percent_change_24h]
     end
 
+    @changes = changes.sort_by { |symbol, coins, price, change, percent| price }.reverse
+
     changes.each do |symbol, coins, price, change, percent|
       @percent_24h += price / wallet * percent
     end
