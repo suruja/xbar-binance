@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module ServiceHelper
+  def available?
+    raise NotImplementedError
+  end
+
   def fetch
     raise NotImplementedError
   end

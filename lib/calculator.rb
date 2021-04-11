@@ -17,7 +17,7 @@ class Calculator
     @services = [
       BinanceHelper.new,
       CoinbaseHelper.new,
-    ]
+    ].select(&:available?)
 
     @wallet = 0.0
     @percent_24h = 0.0

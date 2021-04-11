@@ -15,6 +15,10 @@ class CoinbaseHelper
     )
   end
 
+  def available?
+    ENV["COINBASE_API_KEY"].present? && ENV["COINBASE_SECRET_KEY"].present?
+  end
+
   def fetch
     @balances = client.accounts
   end

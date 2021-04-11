@@ -11,6 +11,10 @@ class BinanceHelper
 
   attr_accessor :balances, :symbols, :positive_symbols
 
+  def available?
+    ENV["BINANCE_API_KEY"].present? && ENV["BINANCE_SECRET_KEY"].present?
+  end
+
   def fetch
     reset
     binance_info = Binance::Api.info!
