@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 require "binance-ruby"
+require File.dirname(__FILE__) + "/service_helper"
 
 Binance::Api::Configuration.api_key = ENV["BINANCE_API_KEY"]
 Binance::Api::Configuration.secret_key = ENV["BINANCE_SECRET_KEY"]
 
 class BinanceHelper
+  include ServiceHelper
+
   attr_accessor :balances, :symbols, :positive_symbols
 
   def fetch

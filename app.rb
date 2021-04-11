@@ -4,8 +4,8 @@ require "rubygems"
 require "binance-ruby"
 require "bitbar"
 
-require "./lib/formatter"
-require "./lib/calculator"
+require File.dirname(__FILE__) + "/lib/formatter"
+require File.dirname(__FILE__) + "/lib/calculator"
 
 calc = Calculator.new
 calc.run

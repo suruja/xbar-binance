@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This Binance widget indicates your current Binance wallet in your fiat currency.
+This Binance widget indicates your current Binance (and/or Coinbase) wallet in your fiat currency.
 
 ## Requirements
 
@@ -17,6 +17,8 @@ This Binance widget indicates your current Binance wallet in your fiat currency.
 ```
 BINANCE_API_KEY=
 BINANCE_SECRET_KEY=
+COINBASE_API_KEY=
+COINBASE_SECRET_KEY=
 COINMARKETCAP_API_KEY=
 DEFAULT_CURRENCY=EUR
 ```
