@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pry'
 require File.dirname(__FILE__) + "/binance_helper"
 require File.dirname(__FILE__) + "/coinbase_helper"
 require File.dirname(__FILE__) + "/coin_market_cap"
@@ -28,6 +29,7 @@ class Calculator
   def run
     services.each(&:fetch)
     @symbols = services.map(&:positive_symbols).reduce(:+)
+    @symbols.reject! { |symbol| %w[USD EUR].include?(symbol) }
     @coin_market_cap = CoinMarketCap.fetch(symbols)
     services.each { |service| build(service) }
 
@@ -41,7 +43,7 @@ class Calculator
   end
 
   def build(service)
-    service.positive_symbols.each do |symbol|
+    service.positive_symbols.reject { |symbol| symbol == 'EUR' }.each do |symbol|
       coins = service.coins_for(symbol)
       market = coin_market_cap[symbol]
       price = coins * market.price
